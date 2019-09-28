@@ -1,24 +1,24 @@
-====
-TODO_PROJECT_NAME
-====
+=========
+QtPlotLib
+=========
 
-TODO_COPYRIGHT_NOTICE
+Copyright (c) 2019 Jérémie DECOCK (www.jdhp.org)
 
-* Web site: TODO_PROJECT_WEB_SITE_URL
-* Online documentation: TODO_PROJECT_ONLINE_DOCUMENTATION_URL
-* Examples: TODO_PROJECT_ONLINE_DOCUMENTATION_URL/gallery/
+* Web site: http://www.jdhp.org/software_en.html#qtplotlib
+* Online documentation: http://qtplotlib.readthedocs.org
+* Examples: http://qtplotlib.readthedocs.org/gallery/
 
-* Notebooks: TODO_PROJECT_GITHUB_URL-notebooks
-* Source code: TODO_PROJECT_GITHUB_URL
-* Issue tracker: TODO_PROJECT_ISSUE_TRACKER_URL
-* TODO_PROJECT_NAME on PyPI: TODO_PROJECT_PYPI_URL
-* TODO_PROJECT_NAME on Anaconda Cloud: https://anaconda.org/jdhp/TODO_PYTHON_PACKAGE_NAME
+* Notebooks: https://github.com/jeremiedecock/qtplotlib-python-notebooks
+* Source code: https://github.com/jeremiedecock/qtplotlib-python
+* Issue tracker: https://github.com/jeremiedecock/qtplotlib-python/issues
+* QtPlotLib on PyPI: https://pypi.org/project/qtplotlib
+* QtPlotLib on Anaconda Cloud: https://anaconda.org/jdhp/qtplotlib
 
 
 Description
 ===========
 
-TODO_PROJECT_SHORT_DESC
+Plotting with Python and Qt
 
 Note:
 
@@ -38,20 +38,20 @@ Installation
 Gnu/Linux
 ---------
 
-You can install, upgrade, uninstall TODO_PROJECT_NAME with these commands (in a
+You can install, upgrade, uninstall QtPlotLib with these commands (in a
 terminal)::
 
-    pip install --pre TODO_PYTHON_PACKAGE_NAME
-    pip install --upgrade TODO_PYTHON_PACKAGE_NAME
-    pip uninstall TODO_PYTHON_PACKAGE_NAME
+    pip install --pre qtplotlib
+    pip install --upgrade qtplotlib
+    pip uninstall qtplotlib
 
-Or, if you have downloaded the TODO_PROJECT_NAME source code::
+Or, if you have downloaded the QtPlotLib source code::
 
     python3 setup.py install
 
 .. There's also a package for Debian/Ubuntu::
 .. 
-..     sudo apt-get install TODO_PYTHON_PACKAGE_NAME
+..     sudo apt-get install qtplotlib
 
 Windows
 -------
@@ -62,14 +62,14 @@ Windows
 ..     3.4 under Windows 7.
 ..     It should also work with recent Windows systems.
 
-You can install, upgrade, uninstall TODO_PROJECT_NAME with these commands (in a
+You can install, upgrade, uninstall QtPlotLib with these commands (in a
 `command prompt`_)::
 
-    py -m pip install --pre TODO_PYTHON_PACKAGE_NAME
-    py -m pip install --upgrade TODO_PYTHON_PACKAGE_NAME
-    py -m pip uninstall TODO_PYTHON_PACKAGE_NAME
+    py -m pip install --pre qtplotlib
+    py -m pip install --upgrade qtplotlib
+    py -m pip uninstall qtplotlib
 
-Or, if you have downloaded the TODO_PROJECT_NAME source code::
+Or, if you have downloaded the QtPlotLib source code::
 
     py setup.py install
 
@@ -82,14 +82,14 @@ MacOSX
 ..     3.5 under MacOSX 10.9 (*Mavericks*).
 ..     It should also work with recent MacOSX systems.
 
-You can install, upgrade, uninstall TODO_PROJECT_NAME with these commands (in a
+You can install, upgrade, uninstall QtPlotLib with these commands (in a
 terminal)::
 
-    pip install --pre TODO_PYTHON_PACKAGE_NAME
-    pip install --upgrade TODO_PYTHON_PACKAGE_NAME
-    pip uninstall TODO_PYTHON_PACKAGE_NAME
+    pip install --pre qtplotlib
+    pip install --upgrade qtplotlib
+    pip uninstall qtplotlib
 
-Or, if you have downloaded the TODO_PROJECT_NAME source code::
+Or, if you have downloaded the QtPlotLib source code::
 
     python3 setup.py install
 
@@ -97,8 +97,8 @@ Or, if you have downloaded the TODO_PROJECT_NAME source code::
 Documentation
 =============
 
-* Online documentation: TODO_PROJECT_ONLINE_DOCUMENTATION_URL
-* API documentation: TODO_PROJECT_ONLINE_API_DOCUMENTATION_URL
+* Online documentation: http://qtplotlib.readthedocs.org
+* API documentation: http://qtplotlib.readthedocs.org/en/latest/api.html
 
 
 Example usage
@@ -110,9 +110,9 @@ TODO
 Bug reports
 ===========
 
-To search for bugs or report them, please use the TODO_PROJECT_NAME Bug Tracker at:
+To search for bugs or report them, please use the QtPlotLib Bug Tracker at:
 
-    TODO_PROJECT_ISSUE_TRACKER_URL
+    https://github.com/jeremiedecock/qtplotlib-python/issues
 
 
 License

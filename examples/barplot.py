@@ -12,7 +12,11 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
 
     widget = QBarPlot()
-    widget.data = (10, 20, 30, 5, 15)
+    #widget.data = (10, 20, 30, 5, 15)
+    widget.data = (8, 7, 5, -5, 6)
+    widget.data_color = ("green", "yellow", "red", "red", "yellow")
+    widget.title = "Hello"
+    #widget.ymin = 0
 
     widget.show()
 

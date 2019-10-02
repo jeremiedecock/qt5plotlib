@@ -76,8 +76,9 @@ class QBarPlot(QWidget):
 
             # Prepare coordinates transform ###################################
 
-            self.top_ordinate_value = max(self.data) if self.ymax is None else self.ymax
-            self.bottom_ordinate_value = min(self.data) if self.ymin is None else self.ymin
+            filtered_data = [data_value for data_value in self.data if data_value is not None]
+            self.top_ordinate_value = max(filtered_data) if self.ymax is None else self.ymax
+            self.bottom_ordinate_value = min(filtered_data) if self.ymin is None else self.ymin
 
             plot_area_x_start = self.horizontal_margin
             plot_area_x_end = widget_width - self.horizontal_margin
@@ -104,6 +105,7 @@ class QBarPlot(QWidget):
             pen.setJoinStyle(Qt.RoundJoin)
             qp.setPen(pen)
             
+            white_brush = QBrush(Qt.white, Qt.SolidPattern)
             green_brush = QBrush(Qt.green, Qt.SolidPattern)
             yellow_brush = QBrush(Qt.yellow, Qt.SolidPattern)
             red_brush = QBrush(Qt.red, Qt.SolidPattern)
@@ -115,29 +117,31 @@ class QBarPlot(QWidget):
 
             for data_index, (data_value, data_color) in enumerate(zip(self.data, self.data_color)):
 
-                if data_color is not None:
+                if data_value is not None:
                     if data_color == "green":
                         qp.setBrush(green_brush)
                     elif data_color == "yellow":
                         qp.setBrush(yellow_brush)
                     elif data_color == "red":
                         qp.setBrush(red_brush)
+                    else:
+                        qp.setBrush(white_brush)
 
-                x_length = math.floor(plot_area_width / num_bar)
-                x_start = self.horizontal_margin + data_index * x_length
-                
-                y_start = self.ordinateTransform(data_value)
-                if y_start is None:
-                    y_start = self.plot_area_y_start
+                    x_length = math.floor(plot_area_width / num_bar)
+                    x_start = self.horizontal_margin + data_index * x_length
+                    
+                    y_start = self.ordinateTransform(data_value)  # TODO: what if y_start is None ?
+                    if y_start is None:
+                        y_start = self.plot_area_y_start
 
-                y_end = self.ordinateTransform(0)
-                if y_end is None:
-                    y_end = self.plot_area_y_end
+                    y_end = self.ordinateTransform(0)
+                    if y_end is None:
+                        y_end = self.plot_area_y_end
 
-                y_length = y_end - y_start
+                    y_length = y_end - y_start
 
-                # Draw bar
-                qp.drawRect(x_start, y_start, x_length, y_length)
+                    # Draw bar
+                    qp.drawRect(x_start, y_start, x_length, y_length)
 
     def ordinateTransform(self, data_ordinate):
         # self.top_ordinate_value    -> self.plot_area_y_start

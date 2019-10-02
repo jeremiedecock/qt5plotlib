@@ -13,8 +13,8 @@ if __name__ == '__main__':
 
     widget = QBarPlot()
     #widget.data = (10, 20, 30, 5, 15)
-    widget.data = (8, 7, 5, -5, 6)
-    widget.data_color = ("green", "yellow", "red", "red", "yellow")
+    widget.data = (8, None, 7, 5, -5, 6)
+    widget.data_color = ("green", None, "yellow", None, "red", "yellow")
     widget.title = "Hello"
     #widget.ymin = 0
 

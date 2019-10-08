@@ -20,6 +20,7 @@ class QBarPlot(QWidget):
         self.title_margin = 5
 
         self.hlines = None
+        self.hlines_style = None
 
         self.ymin = None
         self.ymax = None
@@ -101,7 +102,7 @@ class QBarPlot(QWidget):
 
             #pen = QPen(Qt.black, 3, Qt.SolidLine)
             pen = QPen()
-            pen.setStyle(Qt.SolidLine)   # Qt.DashDotLine
+            pen.setStyle(Qt.SolidLine)   # Qt.DotLine Qt.DashLine Qt.DashDotLine
             pen.setWidth(2)
             pen.setBrush(Qt.black)       # Qt.green
             pen.setCapStyle(Qt.RoundCap)
@@ -116,13 +117,32 @@ class QBarPlot(QWidget):
             # Draw horizontal lines ###########################################
 
             if self.hlines is not None:
-                for hline_value in self.hlines:
+                for hline_index, hline_value in enumerate(self.hlines):
                     hline_position = self.ordinateTransform(hline_value)
 
                     if hline_position is not None:
+                        try:
+                            hline_style = self.hlines_style[hline_index]
+                            if hline_style == ":":
+                                pen = qp.pen()
+                                pen.setStyle(Qt.DotLine)
+                                qp.setPen(pen)
+                            else:
+                                pen = qp.pen()
+                                pen.setStyle(Qt.SolidLine)
+                                qp.setPen(pen)
+                        except:
+                            pen = qp.pen()
+                            pen.setStyle(Qt.SolidLine)
+                            qp.setPen(pen)
+
                         qp.drawLine(plot_area_x_start, hline_position, plot_area_x_end, hline_position)   # x_start, y_start, x_end, y_end
 
             # Draw bars #######################################################
+
+            pen = qp.pen()
+            pen.setStyle(Qt.SolidLine)
+            qp.setPen(pen)
 
             if self.data_color is None:
                 self.data_color = [None for data_value in self.data]

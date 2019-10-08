@@ -19,6 +19,8 @@ class QBarPlot(QWidget):
         self.title_size = 32
         self.title_margin = 5
 
+        self.hlines = None
+
         self.ymin = None
         self.ymax = None
 
@@ -31,6 +33,7 @@ class QBarPlot(QWidget):
         palette.setColor(self.backgroundRole(), Qt.white)
 
         self.setPalette(palette)
+
 
     def paintEvent(self, event):
         qp = QPainter(self)
@@ -110,6 +113,15 @@ class QBarPlot(QWidget):
             yellow_brush = QBrush(Qt.yellow, Qt.SolidPattern)
             red_brush = QBrush(Qt.red, Qt.SolidPattern)
 
+            # Draw horizontal lines ###########################################
+
+            if self.hlines is not None:
+                for hline_value in self.hlines:
+                    hline_position = self.ordinateTransform(hline_value)
+
+                    if hline_position is not None:
+                        qp.drawLine(plot_area_x_start, hline_position, plot_area_x_end, hline_position)   # x_start, y_start, x_end, y_end
+
             # Draw bars #######################################################
 
             if self.data_color is None:
@@ -132,7 +144,10 @@ class QBarPlot(QWidget):
                     
                     y_start = self.ordinateTransform(data_value)  # TODO: what if y_start is None ?
                     if y_start is None:
-                        y_start = self.plot_area_y_start
+                        if data_value > self.bottom_ordinate_value:
+                            y_start = self.plot_area_y_start
+                        else:
+                            y_start = self.plot_area_y_end
 
                     y_end = self.ordinateTransform(0)
                     if y_end is None:
@@ -142,6 +157,7 @@ class QBarPlot(QWidget):
 
                     # Draw bar
                     qp.drawRect(x_start, y_start, x_length, y_length)
+
 
     def ordinateTransform(self, data_ordinate):
         # self.top_ordinate_value    -> self.plot_area_y_start

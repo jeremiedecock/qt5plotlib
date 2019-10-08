@@ -16,7 +16,8 @@ if __name__ == '__main__':
     widget.data = (8, None, 7, 5, -5, 6)
     widget.data_color = ("green", None, "yellow", None, "red", "yellow")
     widget.title = "Hello"
-    #widget.ymin = 0
+    widget.hlines = (1, -2, 10)
+    widget.ymin = -2
 
     widget.show()
 

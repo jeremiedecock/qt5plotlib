@@ -1,5 +1,5 @@
 from PyQt5.QtWidgets import QWidget
-from PyQt5.QtGui import QPainter, QBrush, QPen
+from PyQt5.QtGui import QPainter, QBrush, QPen, QColor
 from PyQt5.QtCore import Qt
 
 import math
@@ -109,10 +109,19 @@ class QBarPlot(QWidget):
             pen.setJoinStyle(Qt.RoundJoin)
             qp.setPen(pen)
             
+            # See https://en.wikipedia.org/wiki/Tango_Desktop_Project#Palette and https://web.archive.org/web/20160202102503/http://tango.freedesktop.org/Tango_Icon_Theme_Guidelines
+            black_pen = QPen(Qt.black, Qt.SolidLine)
+            green_pen = QPen(QColor("#4e9a06"), Qt.SolidLine)
+            yellow_pen = QPen(QColor("#c4a000"), Qt.SolidLine)
+            red_pen = QPen(QColor("#a40000"), Qt.SolidLine)
+
             white_brush = QBrush(Qt.white, Qt.SolidPattern)
-            green_brush = QBrush(Qt.green, Qt.SolidPattern)
-            yellow_brush = QBrush(Qt.yellow, Qt.SolidPattern)
-            red_brush = QBrush(Qt.red, Qt.SolidPattern)
+            green_brush = QBrush(QColor("#73d216"), Qt.SolidPattern)
+            yellow_brush = QBrush(QColor("#edd400"), Qt.SolidPattern)
+            red_brush = QBrush(QColor("#cc0000"), Qt.SolidPattern)
+            #green_brush = QBrush(QColor("#8ae234"), Qt.SolidPattern)
+            #yellow_brush = QBrush(QColor("#fce94f"), Qt.SolidPattern)
+            #red_brush = QBrush(QColor("#ef2929"), Qt.SolidPattern)
 
             # Draw horizontal lines ###########################################
 
@@ -152,12 +161,16 @@ class QBarPlot(QWidget):
                 if data_value is not None:
                     if data_color == "green":
                         qp.setBrush(green_brush)
+                        qp.setPen(green_pen)
                     elif data_color == "yellow":
                         qp.setBrush(yellow_brush)
+                        qp.setPen(yellow_pen)
                     elif data_color == "red":
                         qp.setBrush(red_brush)
+                        qp.setPen(red_pen)
                     else:
                         qp.setBrush(white_brush)
+                        qp.setPen(black_pen)
 
                     x_length = math.floor(plot_area_width / num_bar)
                     x_start = self.horizontal_margin + data_index * x_length
